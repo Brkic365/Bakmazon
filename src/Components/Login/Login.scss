@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$primary-color: #CC021B;
+
+.login {
+    font-family: 'Montserrat' sans-serif;
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .login__login, .login__register {
+        h1 {
+            font-weight: normal;
+            font-size: 2.5em;
+        }
+
+        .login__login-container, .login__register-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2em;
+            border-radius: 2em;
+            background: white;
+            padding: 1.5em;
+            border: 1px solid lightgray;
+
+            p {
+                font-size: 1em;
+                line-height: 1.2em;
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .login__login {
+        h1 {
+            font-weight: normal;
+            font-size: 2.5em;
+        }
+
+        .login__login-container {
+            .custominput .custominput__field {
+
+                margin: 0.5em 0;
+                margin-left: 0.5em;
+
+                input {
+                    border-radius: 0.5em;
+                }
+            
+                label {
+                    text-align: left;
+                    margin-bottom: 0.5em;
+                }
+            }
+
+            .login__login-error {
+                width: 100%;
+                text-align: left !important;
+                margin-top: -1.5em;
+                font-size: 0.8em;
+                color: $primary-color;
+            }
+
+            .login__login-remember {
+                display: flex;
+                align-items: center;
+
+                input {
+                    margin: 0;
+                }
+
+                label {
+                    margin: 0;
+                    margin-left: 0.5em;
+                }
+            }
+
+            .login__login-cta-and-links {
+                display: flex;
+                place-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-top: 1em;
+
+                button {
+                    font-size: 1.3em;
+                    cursor: pointer;
+                    height: 3em;
+                    width: 40%;
+                    background: $primary-color;
+                    border: none;
+                    color: white;
+                    border-radius: 0.5em;
+                }
+
+                .login__login-links {
+                    display: flex;
+                    flex-direction: column;
+                    
+                    a {
+                        margin-top: 0.4em;
+                        cursor: pointer;
+                        color: black !important;
+                        font-size: 0.9em;
+                        opacity: 0.6;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .login__register {
+        margin-top: 3em;
+        margin-bottom: 2em;
+    }
+
+    .login__register .login__register-container button {
+        margin-top: 1em;
+        cursor: pointer;
+        height: 3em;
+        font-size: 1.4em;
+        width: 6em;
+        background: $primary-color;
+        border: none;
+        color: white;
+        border-radius: 0.5em;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .login {
+        flex-direction: row;
+        place-content: space-between;
+        align-items: flex-start;
+        margin-top: 10em;
+        margin-bottom: 3em;
+        width: 90%;
+
+        .login__login {
+            width: 45%;
+        }
+
+        .login__register {
+            width: 45%;
+            margin-top: 0;
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .login {
+        margin-bottom: 10em;
+        width: 80%;
+
+        .login__login .login__login-container .login__login-cta-and-links {
+            button {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .login {
+        width: 80em;
+
+        .login__register .login__register-container button {
+            width: 12em;
+        }
+    }
+}

@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+$primary-color: #CC021B;
+
+:root {
+  --primary-color: $primary-color;
+  --duration: .2s;
+  --distance: 0.2em;
+  --easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.searchbar {
+  display: none !important;
+}
+
+.navbar {
+  font-family: 'Montserrat' sans-serif;
+  padding: 0.5em 1em;
+  width: 100%;
+  position: fixed !important;
+  background: white;
+  z-index: 9999;
+
+  a {
+    text-decoration: none;
+    color: $primary-color;
+    margin: 0;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .navbar__list-mobile {
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    list-style-type: none;  
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -1em;
+    top: -1em;
+    height: 110vh;
+    width: 50%;
+    padding: 20em 2em;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-200%);
+
+    .navbar__mobile-menu-exit {
+      position: absolute;
+      color: $primary-color;
+      width: 2em;
+      height: 2em;
+      left: 1em;
+      top: 1em;
+      cursor: pointer;
+    }
+
+    li {
+      margin-bottom: 2em;
+      font-size: 1.5em;
+    }
+  }
+
+  .navbar__list {
+    display: none;
+  }
+
+  nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    place-content: space-between;
+
+    .navbar__menu {
+      width: 2em;
+      height: 2em;
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    .navbar__logo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5em;
+      margin: 0 auto;
+      font-weight: bold;
+      color: $primary-color;
+      cursor: pointer;
+    }
+
+    .navbar__icons {
+      display: flex;
+      align-items: center;
+
+      .navbar__user {
+        display: none;
+      }
+  
+      .navbar__search {
+        margin-right: 2em;
+        width: 1.5em;
+        height: 1.5em;
+        color: $primary-color;
+        cursor: pointer;
+      }
+  
+      .navbar__cart {
+        position: relative;
+        cursor: pointer;
+  
+        .navbar__cart-img {
+          width: 2em;
+          height: 2em;
+        }
+  
+        .navbar__cart-num {
+          color: black;
+          text-align: center;
+          font-weight: bold;
+          font-size: 0.8em;
+          position: absolute;
+          top: 0.1em;
+          left: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .navbar {
+    nav {
+      .navbar__menu {
+        width: 2.5em;
+        height: 2.5em;
+      }
+      .navbar__logo {
+        font-size: 2em;
+      }
+
+      .navbar__icons {
+        .navbar__search {
+          width: 2em;
+          height: 2em;
+        }
+        .navbar__cart {
+          .navbar__cart-img {
+            width: 2.5em;
+            height: 2.5em;
+          }
+          .navbar__cart-num {
+            font-size: 1.2em;
+            top: -0.1em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .navbar {
+    padding: 0.5em 3em;
+
+    .navbar__list-mobile {
+      left: -3em;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .searchbar {
+    display: flex !important;
+    margin-right: -25em !important;
+  }
+
+  .navbar {
+    nav {
+      .navbar__menu {
+        display: none;
+      }
+
+      .navbar__logo {
+        position: relative;
+        margin-left: 0;
+        margin-bottom: 0;
+        margin-top: 1em;
+      }
+
+      .navbar__list-mobile {
+        display: none;
+      }
+
+      .navbar__list {
+        position: absolute;
+        width: 10em;
+        display: flex;
+        align-items: center;
+        place-content: space-between;
+        list-style-type: none;
+        margin-left: 14em;
+        padding: 0;
+        top: 50%;
+        transform: translateY(-50%);
+          
+        li {
+          color: $primary-color;
+          margin: 0 1em;
+          text-align: center;
+          font-size: 1.2em !important;
+          margin-bottom: 0;
+          
+          a {
+            text-transform: uppercase;
+            position: relative;
+            display: table-cell;
+            white-space: nowrap;
+            margin: 0;
+            transition: transform --duration --easeOutBack, opacity --duration;
+
+            &::after {    
+              background: none repeat scroll 0 0 transparent;
+              bottom: 0;
+              content: "";
+              display: block;
+              height: 1px;
+              left: 50%;
+              position: absolute;
+              background: $primary-color;
+              transition: width 0.3s ease 0s, left 0.3s ease 0s;
+              width: 0;
+            }
+            &:hover:after { 
+              width: 100%; 
+              left: 0; 
+            }
+          }
+        }
+      }
+
+      .navbar__icons {
+
+        .navbar__search {
+          display: none;
+        }
+  
+        .navbar__user {
+          display: flex;
+          align-items: center;
+
+          .navbar__username {
+            text-align: right;
+            color: $primary-color;
+            margin-bottom: 0;
+            margin-right: 0.5em;
+            font-weight: bold;
+            line-height: 1.2em;
+          }
+
+          .navbar__user-img {
+            display: block;
+            color: $primary-color;
+            width: 2em;
+            height: 2em;
+            margin-right: 2em;
+            cursor: pointer;
+          }
+
+          .navbar__user-img-plus {
+            width: 2.6em;
+            height: 2.6em;
+          }
+        }
+  
+        .navbar__cart {
+          .navbar__cart-img {
+            width: 3em;
+            height: 3em;
+          }
+  
+          .navbar__cart-num {
+            top: 0.2em;
+            left: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .searchbar {
+    margin-right: -25em !important;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .navbar {
+    nav {
+      width: 90em;
+      margin: 0 auto;
+    }
+  }
+}

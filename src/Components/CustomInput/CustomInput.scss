@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$primary-color: #CC021B;
+
+.custominput {
+    display: flex;
+    flex-direction: column;
+    place-content: space-evenly;
+    width: 100%;
+    margin-bottom: 1em;
+    font-family: 'Montserrat' sans-serif;
+    margin-left: -1em;
+
+    .custominput__field {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 1em 1em;
+
+        label {
+            font-family: "Monserrat" sans-serif;
+            font-size: 0.9em;
+            font-weight: 600;
+            opacity: 0.6;
+            margin-bottom: 0.5em;
+        }
+
+        .custominput__input-button {
+            input {
+                width: 100%;
+                height: 2.5em;
+                padding: 1em;
+                font-size: 1em;
+                outline: none;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+
+                &:focus {
+                    border: 1px solid black;
+                }
+            }
+    
+            button {
+                margin-left: 10em;
+                width: 10em;
+                font-size: 1.5em;
+                font-weight: bold;
+                font-family: "Monserrat" sans-serif;
+                background-color: $primary-color;
+                border: solid 2px $primary-color;
+                color: white;
+                border-radius: 10px;
+                transition: 0.3s ease;
+                outline: none;
+            }
+    
+            button:hover {
+                background-color: darken($primary-color,5%);
+                box-shadow: 0px 0px 2px 1px darken($primary-color,5%);
+                border-color: darken($primary-color,5%);
+            }
+    
+            button:active {
+                background-color: darken($primary-color,25%);
+                box-shadow: 0px 0px 2px 1px darken($primary-color,25%);
+                border-color: darken($primary-color,25%);
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .custominput {
+        flex-direction: row;
+        .custominput__field {
+            margin: 0 1em;
+        }
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .custominput .custominput__field .custominput__input-button {
+        input {
+            padding: 1.5em;
+            height: 3em;
+        }
+    }
+}

@@ -1,0 +1,117 @@
+$primary-color: #CC021B;
+
+.home {
+    width: 100%;
+  
+    .header {
+      width: 100%;
+      height: 50rem;
+      display: flex;
+      padding-top: 5rem;
+      background-color: rgb(204, 2, 27);
+  
+      .content {
+        padding: 5rem;
+        padding-left: 15rem;
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+  
+        h1 {
+          color: white;
+          width: 40rem;
+          font-size: 52px;
+          font-weight: bold;
+        }
+  
+        p {
+          padding-top: 2.5rem;
+          width: 40rem;
+          color: whitesmoke;
+          font-size: 18px;
+        }
+  
+        .buttons {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          padding-top: 1rem;  
+
+          a {
+            text-decoration: none;
+          }
+
+          .btn1 {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 15px;
+            padding: 0.5rem;
+            padding-inline: 2rem;
+            margin-right: 2rem;
+            transition: 0.3s ease;
+
+            &:hover {
+              background: white;
+              color: $primary-color;
+            }
+          }
+  
+          .btn2 {
+            color: rgb(204, 2, 27);
+            font-size: 24px;
+            font-weight: bold;
+            outline: none;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 15px;
+            padding: 0.5rem;
+            padding-inline: 2rem;
+            margin-right: 2rem;
+          }
+        }
+      }
+  
+      .image {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        padding-top: 5.25rem;
+        align-items: center;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+
+  @media (max-width: 1400px) {
+    .image {
+      display: none !important;
+    }
+
+    .content {
+        padding-left: 0 !important;
+        align-items: center;
+
+        h1{
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        div {
+            justify-content: center;
+            padding-top: 1rem;
+        }
+    }
+  }

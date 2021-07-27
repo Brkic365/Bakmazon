@@ -1,0 +1,77 @@
+$primary-color: #CC021B;
+
+.searchbar {
+    position: relative;
+    border: 1px solid #C1C1C1;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    place-content: space-evenly;
+    align-items: center;
+    background-color: #f5f5f5;
+    margin-right: 1em;
+
+    .searchbar__searchicon {
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 1.1em;
+    }
+
+    .searchbar__searchicon-enable {
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 1.1em;
+        cursor: pointer;
+    }
+
+    .searchbar__searchicon-enable:active {
+        width: 1.5em;
+        height: 1.5em;
+        margin-right: 1.1em;
+        stroke: darken($primary-color,25%);
+        cursor: pointer;
+    }
+    
+    .searchbar__input {
+        padding: 0.5em;
+        padding-inline: 1em;
+        width: 12em;
+        border-radius: 2em;
+        outline: none;
+        background-color: #F5F5F5;
+        border: none;
+        color: rgb(29, 29, 29);
+        font-weight: normal;
+    }
+
+    input::-webkit-input-placeholder {
+        color: rgb(0, 0, 0); /*Change the placeholder color*/
+        opacity: 0.5; /*Change the opacity between 0 and 1*/
+   }
+}
+
+@media only screen and (min-width: 500px) {
+    .searchbar .searchbar__input {
+        width: 13em;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .searchbar {
+        .searchbar__input {
+            width: 20em;
+            padding: 0.6em;
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .searchbar {
+        .searchbar__input {
+            width: 30em;
+            padding: 0.7em;
+            font-size: 1em;
+        }
+    }
+}

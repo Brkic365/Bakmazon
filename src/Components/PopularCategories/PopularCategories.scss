@@ -1,0 +1,37 @@
+$primary-color: #CC021B;
+
+.pop-categories {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 5em auto;
+
+    h1 {
+        margin-bottom: 0.7em;
+        font-weight: normal;
+    }
+
+    .pop-categories__imgs {
+        display: flex;
+        flex-direction: row;
+        place-content: space-between;
+
+        .pop-categories__category {
+            margin: 0 2em;
+            cursor: pointer;
+        
+            img {
+              width: 10em;
+              height: 10em;
+            }
+        
+            h2 {
+              margin-top: 0.5em;
+              text-align: center;
+              font-size: 2em;
+              border: none;
+              font-weight: normal;
+            }
+          }
+    }
+  }

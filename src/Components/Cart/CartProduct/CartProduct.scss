@@ -1,0 +1,100 @@
+$primary-color: #CC021B;
+
+.cart-product {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .cart-product__main {
+        display: flex;
+        align-items: center;
+        place-content: space-between;
+        margin: 1em 1.5em 3em 1.5em;
+    
+        .cart-product__img-name {
+            display: flex;
+            align-items: center;
+            img {
+                width: 4em;
+                height: 4em;
+                border: 1px solid lightgray;
+                border-radius: 1em;
+            }
+        
+            h3 {
+                font-size: 1em;
+                width: 3em;
+                opacity: 0.8;
+            }
+        }
+    
+        input {
+            position: absolute;
+            width: 2em;
+            height: 2em;
+            text-align: center;
+            border-radius: 0.5em;
+            border: 1px solid lightgray;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    
+        h4 {
+            font-size: 1.5em;
+        }
+    }
+
+    .cart-product__trash {
+        cursor: pointer;
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+        width: 1.5em;
+        height: 1.5em;
+        transition: 0.3s ease;
+
+        &:hover {
+            color: red;
+        }
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .cart-product {
+        .cart-product__main {
+            .cart-product__img-name {
+                h3 {
+                    width: 8em;
+                    font-size: 1.3em;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .cart-product .cart-product__main {
+        .cart-product__img-name {
+            img {
+                width: 6em;
+                height: 6em;
+            }
+        }
+
+        input {
+            font-size: 1.5em;
+        } 
+        
+        h4 {
+            font-size: 2em;
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .cart-product .cart-product__main .cart-product__img-name {
+        h3 {
+            font-size: 2em;
+        }
+    }
+}

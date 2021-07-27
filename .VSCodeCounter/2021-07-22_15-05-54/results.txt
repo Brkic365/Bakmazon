@@ -1,0 +1,113 @@
+Date : 2021-07-22 15:05:54
+Directory : f:\Antonio\Code\WebDev\bakmazon\src
+Total : 59 files,  3812 codes, 86 comments, 643 blanks, all 4541 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| SCSS       |         24 |      2,090 |          8 |        319 |      2,417 |
+| JavaScript |         29 |      1,684 |         78 |        317 |      2,079 |
+| XML        |          3 |         26 |          0 |          3 |         29 |
+| CSS        |          3 |         12 |          0 |          4 |         16 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                     | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                        |         59 |      3,812 |         86 |        643 |      4,541 |
+| Components                                                                                               |         52 |      3,748 |         79 |        632 |      4,459 |
+| Components\AddToCart                                                                                     |          2 |          0 |          0 |          2 |          2 |
+| Components\App                                                                                           |          2 |         50 |          0 |          4 |         54 |
+| Components\Cart                                                                                          |          6 |        551 |         11 |        100 |        662 |
+| Components\CartDropdown                                                                                  |          4 |        176 |          6 |         33 |        215 |
+| Components\CartDropdown\CartDropdownProduct                                                              |          2 |         63 |          0 |         11 |         74 |
+| Components\Cart\CartProduct                                                                              |          2 |        120 |          3 |         24 |        147 |
+| Components\Cart\Discount                                                                                 |          2 |        160 |          1 |         24 |        185 |
+| Components\Catalog                                                                                       |          2 |         15 |          0 |          3 |         18 |
+| Components\ChatPopup                                                                                     |          2 |        107 |          2 |         19 |        128 |
+| Components\Checkout                                                                                      |          2 |        236 |          6 |         43 |        285 |
+| Components\CustomInput                                                                                   |          2 |        116 |          0 |         27 |        143 |
+| Components\Firebase                                                                                      |          1 |         14 |          0 |          3 |         17 |
+| Components\Footer                                                                                        |          2 |        104 |          0 |         18 |        122 |
+| Components\Home                                                                                          |          2 |        137 |          0 |         23 |        160 |
+| Components\Navbar                                                                                        |          2 |        327 |          4 |         58 |        389 |
+| Components\Product                                                                                       |          2 |        238 |          8 |         50 |        296 |
+| Components\ProductList                                                                                   |          2 |         55 |          7 |         12 |         74 |
+| Components\Recent                                                                                        |          3 |         66 |          0 |          8 |         74 |
+| Components\Search                                                                                        |          2 |         29 |          3 |          8 |         40 |
+| Components\SearchBar                                                                                     |          2 |        116 |          6 |         27 |        149 |
+| Components\SellProduct                                                                                   |          2 |        190 |          7 |         33 |        230 |
+| Components\Sidebar                                                                                       |          4 |      1,061 |         16 |        123 |      1,200 |
+| Components\Store                                                                                         |          2 |         23 |          0 |          5 |         28 |
+| Components\StoreItems                                                                                    |          2 |        103 |          3 |         25 |        131 |
+| Components\Trending                                                                                      |          2 |         34 |          0 |          8 |         42 |
+| imgs                                                                                                     |          3 |         26 |          0 |          3 |         29 |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                 | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\AddToCart\AddToCart.css                                   | CSS        |          0 |          0 |          1 |          1 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\AddToCart\AddToCart.js                                    | JavaScript |          0 |          0 |          1 |          1 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\App\App.js                                                | JavaScript |         44 |          0 |          4 |         48 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\App\App.scss                                              | SCSS       |          6 |          0 |          0 |          6 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\CartDropdown\CartDropdown.js                              | JavaScript |         68 |          6 |         16 |         90 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\CartDropdown\CartDropdown.scss                            | SCSS       |         45 |          0 |          6 |         51 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\CartDropdown\CartDropdownProduct\CartDropdownProduct.js   | JavaScript |         16 |          0 |          5 |         21 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\CartDropdown\CartDropdownProduct\CartDropdownProduct.scss | SCSS       |         47 |          0 |          6 |         53 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Cart\Cart.js                                              | JavaScript |         94 |          7 |         22 |        123 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Cart\Cart.scss                                            | SCSS       |        177 |          0 |         30 |        207 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Cart\CartProduct\CartProduct.js                           | JavaScript |         34 |          3 |         12 |         49 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Cart\CartProduct\CartProduct.scss                         | SCSS       |         86 |          0 |         12 |         98 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Cart\Discount\Discount.js                                 | JavaScript |         81 |          1 |         11 |         93 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Cart\Discount\Discount.scss                               | SCSS       |         79 |          0 |         13 |         92 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Catalog\Catalog.js                                        | JavaScript |         10 |          0 |          3 |         13 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Catalog\Catalog.scss                                      | SCSS       |          5 |          0 |          0 |          5 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\ChatPopup\ChatPopup.js                                    | JavaScript |         42 |          2 |          9 |         53 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\ChatPopup\ChatPopup.scss                                  | SCSS       |         65 |          0 |         10 |         75 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Checkout\Checkout.js                                      | JavaScript |         99 |          6 |         16 |        121 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Checkout\Checkout.scss                                    | SCSS       |        137 |          0 |         27 |        164 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\CustomInput\CustomInput.js                                | JavaScript |         47 |          0 |         18 |         65 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\CustomInput\CustomInput.scss                              | SCSS       |         69 |          0 |          9 |         78 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Firebase\Firebase.js                                      | JavaScript |         14 |          0 |          3 |         17 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Footer\Footer.js                                          | JavaScript |         22 |          0 |          7 |         29 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Footer\Footer.scss                                        | SCSS       |         82 |          0 |         11 |         93 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Home\Home.js                                              | JavaScript |         47 |          0 |         10 |         57 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Home\Home.scss                                            | SCSS       |         90 |          0 |         13 |        103 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Navbar\Navbar.js                                          | JavaScript |         78 |          4 |         20 |        102 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Navbar\Navbar.scss                                        | SCSS       |        249 |          0 |         38 |        287 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\ProductList\ProductList.js                                | JavaScript |         46 |          7 |         12 |         65 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\ProductList\ProductList.scss                              | SCSS       |          9 |          0 |          0 |          9 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Product\Product.js                                        | JavaScript |        115 |          8 |         32 |        155 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Product\Product.scss                                      | SCSS       |        123 |          0 |         18 |        141 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Recent\Recent.css                                         | CSS        |          0 |          0 |          1 |          1 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Recent\Recent.js                                          | JavaScript |         62 |          0 |          7 |         69 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Recent\Recent.scss                                        | SCSS       |          4 |          0 |          0 |          4 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\SearchBar\SearchBar.js                                    | JavaScript |         49 |          6 |         19 |         74 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\SearchBar\SearchBar.scss                                  | SCSS       |         67 |          0 |          8 |         75 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Search\Search.js                                          | JavaScript |         24 |          3 |          8 |         35 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Search\Search.scss                                        | SCSS       |          5 |          0 |          0 |          5 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\SellProduct\SellProduct.js                                | JavaScript |        106 |          7 |         21 |        134 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\SellProduct\SellProduct.scss                              | SCSS       |         84 |          0 |         12 |         96 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Sidebar\Sidebar.js                                        | JavaScript |        264 |          4 |         18 |        286 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Sidebar\Sidebar.scss                                      | SCSS       |        362 |          4 |         51 |        417 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Sidebar\Sidebar2.js                                       | JavaScript |        201 |          4 |         14 |        219 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Sidebar\Sidebar2.scss                                     | SCSS       |        234 |          4 |         40 |        278 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\StoreItems\StoreItems.js                                  | JavaScript |         51 |          3 |         12 |         66 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\StoreItems\StoreItems.scss                                | SCSS       |         52 |          0 |         13 |         65 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Store\Store.js                                            | JavaScript |         17 |          0 |          5 |         22 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Store\Store.scss                                          | SCSS       |          6 |          0 |          0 |          6 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Trending\Trending.js                                      | JavaScript |         27 |          0 |          6 |         33 |
+| f:\Antonio\Code\WebDev\bakmazon\src\Components\Trending\Trending.scss                                    | SCSS       |          7 |          0 |          2 |          9 |
+| f:\Antonio\Code\WebDev\bakmazon\src\imgs\cart.svg                                                        | XML        |          5 |          0 |          1 |          6 |
+| f:\Antonio\Code\WebDev\bakmazon\src\imgs\dropdown.svg                                                    | XML        |          3 |          0 |          1 |          4 |
+| f:\Antonio\Code\WebDev\bakmazon\src\imgs\menu.svg                                                        | XML        |         18 |          0 |          1 |         19 |
+| f:\Antonio\Code\WebDev\bakmazon\src\index.css                                                            | CSS        |         12 |          0 |          2 |         14 |
+| f:\Antonio\Code\WebDev\bakmazon\src\index.js                                                             | JavaScript |         13 |          3 |          3 |         19 |
+| f:\Antonio\Code\WebDev\bakmazon\src\reportWebVitals.js                                                   | JavaScript |         12 |          0 |          2 |         14 |
+| f:\Antonio\Code\WebDev\bakmazon\src\setupTests.js                                                        | JavaScript |          1 |          4 |          1 |          6 |
+| Total                                                                                                    |            |      3,812 |         86 |        643 |      4,541 |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

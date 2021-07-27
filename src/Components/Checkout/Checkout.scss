@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$primary-color: #CC021B;
+
+.checkout {
+    width:100%;
+    background-color: #f5f5f5;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5em;
+
+    .checkout__title {
+        display: flex;
+        justify-content: center;
+
+        h1 {
+            color: black;
+            font-family: "Monserrat" sans-serif;
+        }
+    }
+
+    .checkout__content {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3em;
+        width: 100%;
+        justify-content: space-between;
+
+        h2 {
+            opacity: 0.7;
+            padding-bottom: 0.5em;
+            border-bottom: 2px solid lightgray;
+        }
+
+        .checkout__myInfo {
+            background-color: rgb(240, 240, 240);
+            box-shadow: 0px 0px 7px 2px rgb(220, 220, 220);
+            width: 100%;
+            padding: 2em;
+            border-radius: 1em;
+        }
+
+        .checkout__summary {
+            margin-top: 5em;
+            width: 100%;
+            background-color: rgb(240, 240, 240);
+            box-shadow: 0px 0px 7px 2px rgb(220, 220, 220);
+            border-radius: 1em;
+            padding: 2em;
+
+            .checkout__content {
+                display: flex;
+                flex-direction:column;
+                width: 100%;
+                height: 20rem;
+                padding-bottom: 20px;
+
+                div {
+                    display: flex;
+                    justify-content: space-between;
+
+                    h1 {
+                        font-weight: bold;
+                    }
+                }
+
+                .checkout__addin {
+                    padding-top: 1.5em;
+                    border-bottom: solid 1px rgba(0, 0, 0, 0.322);
+                    display: flex;
+                    align-items: center;
+                    
+                    h3 {
+                        font-weight: bold;
+                        font-size: 1.5em;
+                    }
+                }
+
+                .checkout__total {
+                    margin-top: 1em;
+                    
+                    h1 {
+                        font-size: 1.8em;
+                    }
+                }
+
+                .checkout__subtotal {
+                    border-bottom: solid 1px rgba(0, 0, 0, 0.322);
+                    align-items: center;
+
+                    .checkout__subtotal-price {
+                        display: flex;
+                        flex-direction: column;
+
+                        p {
+                            margin: 0;
+                            font-size: 0.8em;
+                            text-align: right;
+                        }
+                    }
+
+                    h3 {
+                        font-weight: bold;
+                        font-size: 1.5em;
+                    }
+                }
+
+
+            }
+
+            .checkout__buttons {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                button {
+                    margin-top: 0;
+                    height: 3.5rem;
+                    width: 100%;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    font-family: "Monserrat" sans-serif;
+                    background-color: $primary-color;
+                    border: solid 2px $primary-color;
+                    color: white;
+                    border-radius: 0.4em;
+                    transition: 0.3s ease;
+                    outline: none;
+                }
+
+                button:hover {
+                    background-color: darken($primary-color,5%);
+                    box-shadow: 0px 0px 2px 1px darken($primary-color,5%);
+                    border-color: darken($primary-color,5%);
+                }
+
+                button:active {
+                    background-color: darken($primary-color,25%);
+                    box-shadow: 0px 0px 2px 1px darken($primary-color,25%);
+                    border-color: darken($primary-color,25%);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .checkout .checkout__content .checkout__summary {
+        .checkout__total {
+            font-size: 1.7em;
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .checkout .checkout__content {
+        flex-direction: row;
+
+        .checkout__summary {
+            margin: 0;
+            margin-left: 2em;
+        }
+    }
+}

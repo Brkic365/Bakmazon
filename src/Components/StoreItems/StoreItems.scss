@@ -1,0 +1,67 @@
+$primary-color: #CC021B;
+
+.store-header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .per-page {
+        display: flex;
+        align-items: center;
+
+        select {
+            width: 4rem;
+            height: 2.5rem;
+            margin-left: 1rem;
+            text-align: center;
+            padding-left: 0.5rem;
+            outline: none;
+            background-color: rgb(230,230,230);
+            border: solid 1px rgb(210,210,210);
+            border-radius: 5px;
+
+        }
+
+        h5 {
+            margin: 0;
+        }
+    }
+
+    .sort-by {
+        display: flex;
+        align-items: center;
+
+        h5 {
+            margin: 0;
+        }
+
+        select {
+            width: 11rem;
+            height: 2.5rem;
+            margin-left: 1rem;
+            text-align: center;
+            padding-left: 0.5rem;
+            outline: none;
+            background-color: rgb(230,230,230);
+            border: solid 1px rgb(210,210,210);
+            border-radius: 5px;
+
+        }
+
+        option:active {
+            outline: none;
+            border: solid 10px red;
+
+        }
+
+    }
+}
+
+.store-main {
+    margin-top: 2rem;
+    padding: 1em;
+    width: 100%;
+    border: 2px solid lightgray;
+    border-radius: 1em;
+}
