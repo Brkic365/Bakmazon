@@ -251,6 +251,7 @@ $primary-color: #CC021B;
         }
   
         .navbar__user {
+          cursor: pointer;
           display: flex;
           align-items: center;
 
@@ -269,7 +270,6 @@ $primary-color: #CC021B;
             width: 2em;
             height: 2em;
             margin-right: 2em;
-            cursor: pointer;
           }
 
           .navbar__user-img-plus {

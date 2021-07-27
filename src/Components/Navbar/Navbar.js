@@ -10,6 +10,7 @@ import { FaSearch, FaUserAlt, FaUserPlus } from "react-icons/fa";
 import cart from "../../imgs/cart.svg";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import { motion } from "framer-motion";
+import AccountDropdown from "../AccountDropdown/AccountDropdown";
 
 function Navbar() {
   // States
@@ -17,6 +18,7 @@ function Navbar() {
   const [itemCount, setItemCount] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [displayCartDropdown, setDisplayCartDropdown] = useState(false);
+  const [displayAccDropdown, setDisplayAccDropdown] = useState(false);
   const [username, setUsername] = useState([]);
 
   // Functions
@@ -46,7 +48,7 @@ function Navbar() {
 
   // Variants
 
-  const cartDropdownVariants = {
+  const dropdownVariants = {
     open: { opacity: 1, x: 0, display: "flex" },
     closed: { opacity: 0, x: "100%", display: "none" }
   };
@@ -85,10 +87,17 @@ function Navbar() {
 
             {
               username.length > 1 ? 
-              <div className="navbar__user">
-                <p className="navbar__username">{username[0]} <br/> {username[1]}</p>  
-                <Link to="/login" className="navbar__user-link"><FaUserAlt className="navbar__user-img"/></Link> 
-              </div>   
+              <div className="navbar__user-and-dropdown" onMouseLeave={() => setDisplayAccDropdown(false)}>
+                <div className="navbar__user" onMouseEnter={() => setDisplayAccDropdown(true)}>
+                  <p className="navbar__username">{username[0]} <br/> {username[1]}</p>  
+                  <Link to="/login" className="navbar__user-link"><FaUserAlt className="navbar__user-img"/></Link> 
+                </div>  
+              
+                <motion.div className="navbar__dropdown"
+                  animate={displayAccDropdown ? "open" : "closed"} variants={dropdownVariants}>
+                  <AccountDropdown />
+                </motion.div>
+              </div>
               :
               <div className="navbar__user">
                 <Link to="/login" className="navbar__user-link"><FaUserPlus className="navbar__user-img navbar__user-img-plus"/></Link>  
@@ -107,7 +116,7 @@ function Navbar() {
             </Link>
 
             <motion.div className="navbar__dropdown"
-            animate={displayCartDropdown ? "open" : "closed"} variants={cartDropdownVariants}>
+            animate={displayCartDropdown ? "open" : "closed"} variants={dropdownVariants}>
               <CartDropdown />
             </motion.div>
           </div>
