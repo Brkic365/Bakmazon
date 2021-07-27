@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './CartDropdown.scss'
 import { auth, db } from '../Firebase/Firebase'
 import CartDropdownProduct from './CartDropdownProduct/CartDropdownProduct';
-import firebase from 'firebase';
 import { Link } from 'react-router-dom';
 
 function CartDropdown() {

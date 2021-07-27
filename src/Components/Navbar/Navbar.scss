@@ -125,7 +125,12 @@ $primary-color: #CC021B;
           font-size: 0.8em;
           position: absolute;
           top: 0.1em;
-          left: 35%;
+          left: 25%;
+        }
+
+        .navbar__cart-dropicon {
+          width: 1.5em;
+          height: 1.5em;
         }
       }
     }
@@ -157,6 +162,7 @@ $primary-color: #CC021B;
             font-size: 1.2em;
             top: -0.1em;
           }
+
         }
       }
     }
@@ -276,9 +282,17 @@ $primary-color: #CC021B;
             width: 2.6em;
             height: 2.6em;
           }
+
+          .navbar__user-dropicon {
+            margin-left: -2em;
+            width: 1.5em;
+            height: 1.5em;
+          }
         }
   
         .navbar__cart {
+          margin-left: 1.5em;
+          
           .navbar__cart-img {
             width: 3em;
             height: 3em;
@@ -286,7 +300,7 @@ $primary-color: #CC021B;
   
           .navbar__cart-num {
             top: 0.2em;
-            left: 40%;
+            left: 25%;
           }
         }
       }

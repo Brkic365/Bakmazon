@@ -1,7 +1,5 @@
 import React, { useEffect , useState} from 'react'
 import './Home.scss'
-import Trending from '../Trending/Trending';
-import {Carousel} from 'react-bootstrap';
 import PopularCategories from '../PopularCategories/PopularCategories';
 import SaleAd from '../SaleAd/SaleAd';
 import { motion } from 'framer-motion';

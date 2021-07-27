@@ -14,28 +14,45 @@ $primary-color: #CC021B;
     ul {
         list-style-type: none;
         display: flex;
+        align-items: center;
         flex-direction: column;
         margin: 0;
         padding: 0;
         text-align: center;
 
-        a {
-            text-decoration: none;
-            font-size: 1.2em;
-            color: black;
-            text-align: center;
-            transition: 0.3s ease;
-
-            &:hover {
-                color: $primary-color;
-            }
-        }
-
         li {
+            position: relative;
+            display: flex;
+            width: 100%;
+            align-items: center;
             border-top: 1px solid lightgray;
             margin-top: 1em;
             padding-top: 0.5em;
             margin-left: 0;
+
+            a, p {
+                margin-left: 0.5em;
+                margin-bottom: 0;
+                cursor: pointer;
+                text-decoration: none;
+                font-size: 1.2em;
+                color: black;
+                text-align: center;
+                transition: 0.3s ease;
+            }
+
+            .accdrop__icon {
+                width: 1.3em;
+                height: 1.3em;
+            }
+
+            &:hover {
+                color: $primary-color;
+
+                a, p {
+                    color: $primary-color;
+                }
+            }
         }
     }
 }

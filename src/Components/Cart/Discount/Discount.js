@@ -3,7 +3,6 @@ import './Discount.scss'
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { VscError } from "react-icons/vsc"
 import { FiArrowRight } from "react-icons/fi";
-import { RiPriceTag3Fill } from "react-icons/ri";
 import { db, auth } from '../../Firebase/Firebase';
 
 function Discount({price}) {

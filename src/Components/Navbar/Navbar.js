@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { db, auth } from "../Firebase/Firebase";
 import firebase from "firebase";
 import { BiExit, BiMenuAltLeft } from "react-icons/bi";
-import { IoMdCart } from "react-icons/io";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { FaSearch, FaUserAlt, FaUserPlus } from "react-icons/fa";
 import cart from "../../imgs/cart.svg";
 import CartDropdown from "../CartDropdown/CartDropdown";
@@ -29,6 +29,7 @@ function Navbar() {
         setUsername(user.displayName.split(' '));
         console.log(user.displayName);
       } else {
+        setUsername([]);
         console.log("User logged out");
       }
     });
@@ -39,7 +40,11 @@ function Navbar() {
       db.collection("cart").doc(`${auth.currentUser.uid}`).onSnapshot(snapshot => {
         if(snapshot.data()){
           console.log("here");
-          setItemCount(Object.values(snapshot.data()).reduce((a, b) => a + b));
+          if(Object.values(snapshot.data()).length > 0){
+            setItemCount(Object.values(snapshot.data()).reduce((a, b) => a + b));
+          }else {
+            setItemCount(0);
+          }
           console.log(itemCount);
         }
       })
@@ -88,10 +93,11 @@ function Navbar() {
             {
               username.length > 1 ? 
               <div className="navbar__user-and-dropdown" onMouseLeave={() => setDisplayAccDropdown(false)}>
-                <div className="navbar__user" onMouseEnter={() => setDisplayAccDropdown(true)}>
+                <Link className="navbar__user" onMouseEnter={() => setDisplayAccDropdown(true)} to="/account">
                   <p className="navbar__username">{username[0]} <br/> {username[1]}</p>  
-                  <Link to="/login" className="navbar__user-link"><FaUserAlt className="navbar__user-img"/></Link> 
-                </div>  
+                  <FaUserAlt className="navbar__user-img"/>
+                  <IoMdArrowDropdown  className="navbar__user-dropicon"/>
+                </Link>  
               
                 <motion.div className="navbar__dropdown"
                   animate={displayAccDropdown ? "open" : "closed"} variants={dropdownVariants}>
@@ -112,6 +118,7 @@ function Navbar() {
               <div className="navbar__cart">
                 <img src={cart} alt="cart" className="navbar__cart-img"/>
                 <p className="navbar__cart-num">{itemCount}</p>
+                <IoMdArrowDropdown className="navbar__cart-dropicon"/>
               </div>
             </Link>
 

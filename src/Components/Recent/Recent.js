@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Product from '../Product/Product'
 import "./Recent.scss";
+import Product from '../Product/Product'
 import {db} from "../Firebase/Firebase";
 
 const products = [{

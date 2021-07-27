@@ -4,8 +4,6 @@ import { FiSearch } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 import { db, auth } from '../Firebase/Firebase';
 import firebase from 'firebase';
-import Search from '../Search/Search';
-import StoreItems from '../StoreItems/StoreItems';
 
 function SearchBar() {
 

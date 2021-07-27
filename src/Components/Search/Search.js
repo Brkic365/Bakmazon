@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import "./Search.scss";
 import StoreItems from '../StoreItems/StoreItems'
 import { auth, db } from '../Firebase/Firebase'
-import "./Search.scss";
 
 
 function Search() {

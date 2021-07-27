@@ -1,7 +1,7 @@
 import React, { createRef, useState } from 'react'
 import './SellProduct.scss'
 import firebase from 'firebase';
-import { db, auth, storage } from '../Firebase/Firebase';
+import { db, storage } from '../Firebase/Firebase';
 
 function SellProduct() {
 
