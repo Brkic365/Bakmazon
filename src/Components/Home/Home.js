@@ -39,8 +39,8 @@ function Home() {
           <h1>Buy Best Products From All Of The World</h1>
           <p>All Of The Newest Trends And Everything You Need In One Place</p>
           <div className="buttons">
-            <Link to="store"><motion.button className="btn1" whileHover={{scale: 1.05}} whileTap={{scale:0.95}}>Explore</motion.button></Link>
-            <Link to="sign-up"><motion.button className="btn2" whileHover={{scale: 1.05}} whileTap={{scale:0.95}}>Sign Up</motion.button></Link>
+            <Link to="/store"><motion.button className="btn1" whileHover={{scale: 1.05}} whileTap={{scale:0.95}}>Explore</motion.button></Link>
+            <Link to="/login"><motion.button className="btn2" whileHover={{scale: 1.05}} whileTap={{scale:0.95}}>Sign Up</motion.button></Link>
           </div>
         </div>
         <div className="image">
