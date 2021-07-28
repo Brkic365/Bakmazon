@@ -3,6 +3,7 @@ import './Login.scss'
 import Custominput from "../CustomInput/CustomInput"
 import { Link, useHistory } from 'react-router-dom'
 import { auth } from '../Firebase/Firebase'
+import firebase from 'firebase'
 
 function Login() {
 
@@ -12,6 +13,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [emailErrorMessage, setEmailErrorMessage] = useState("");
     const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
+    const [remember, setRemember] = useState(false);
 
     // Variables
 
@@ -20,9 +22,14 @@ function Login() {
     // Functionss
 
     const handleLogin = (e) => {
-        auth.signInWithEmailAndPassword(email, password).then(() => history.push("/")).catch(err => {
-            alert(err.message);
-        })
+
+        let persistance = remember ? firebase.auth.Auth.Persistence.LOCAL : firebase.auth.Auth.Persistence.SESSION;
+
+        auth.setPersistence(persistance).then(() => {
+            auth.signInWithEmailAndPassword(email, password).then(() => history.push("/")).catch(err => {
+                alert(err.message);
+            })
+        }).catch((err) => alert(err.message));
     }
 
     return (
@@ -38,7 +45,7 @@ function Login() {
                     <p className="login__login-error">{passwordErrorMessage}</p>
 
                     <div className="login__login-remember">
-                        <input type="checkbox" id="remember-check"/>
+                        <input type="checkbox" id="remember-check" onChange={(e) => setRemember(e.target.checked)}/>
                         <label htmlFor="remember-check">Remember me</label>
                     </div>
                     <div className="login__login-cta-and-links">

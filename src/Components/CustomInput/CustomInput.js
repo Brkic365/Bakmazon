@@ -3,16 +3,19 @@ import './CustomInput.scss'
 
 function CustomInput({names, isRequired, buttonText, parentCallback}) {
 
+    // States
+
+    const [max, setMax] = useState(Array.isArray(names) ? names.length : 1);
+    const [types, setTypes] = useState({"email": "email", "phone": "tel", "zip": "number", "password" : "password"});
+
+    // Variables
+
     const inputs = [];
-    const max = Array.isArray(names) ? names.length : 1;
     let required = false;
-
     let text;
-
     let type = "text";
-
-    const types = {"email": "email", "phone": "tel", "zip": "number", "password" : "password"};
-
+    
+    // Functions
 
     const handleChange = (text) => (e) => {
         e.preventDefault();

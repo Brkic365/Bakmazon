@@ -3,7 +3,6 @@ import "./Navbar.scss";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { db, auth } from "../Firebase/Firebase";
-import firebase from "firebase";
 import { BiExit, BiMenuAltLeft } from "react-icons/bi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { FaSearch, FaUserAlt, FaUserPlus } from "react-icons/fa";
@@ -20,14 +19,19 @@ function Navbar() {
   const [displayCartDropdown, setDisplayCartDropdown] = useState(false);
   const [displayAccDropdown, setDisplayAccDropdown] = useState(false);
   const [username, setUsername] = useState([]);
+  const [pfpUrl, setPfpUrl] = useState(null);
 
   // Functions
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       if (user && user.displayName) {
         setUsername(user.displayName.split(' '));
         console.log(user.displayName);
+
+        db.collection("pfps").doc(`${auth.currentUser.uid}`).get().then((snapshot) => {
+          setPfpUrl(snapshot.data() ? snapshot.data()["pfp"] : null);
+        })
       } else {
         setUsername([]);
         console.log("User logged out");
@@ -94,8 +98,11 @@ function Navbar() {
               username.length > 1 ? 
               <div className="navbar__user-and-dropdown" onMouseLeave={() => setDisplayAccDropdown(false)}>
                 <Link className="navbar__user" onMouseEnter={() => setDisplayAccDropdown(true)} to="/account">
-                  <p className="navbar__username">{username[0]} <br/> {username[1]}</p>  
-                  <FaUserAlt className="navbar__user-img"/>
+                  <p className="navbar__username">{username[0]} <br/> {username[1]}</p>
+                  {
+                    pfpUrl ? <img src={pfpUrl} className="navbar__user-img" style={{borderRadius: "50%", border: "1px solid lightgray"}}/>
+                    : <FaUserAlt className="navbar__user-img"/>
+                  }  
                   <IoMdArrowDropdown  className="navbar__user-dropicon"/>
                 </Link>  
               

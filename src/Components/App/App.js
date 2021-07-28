@@ -2,7 +2,7 @@ import './App.scss';
 import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from '../Home/Home';
 import Store from '../Store/Store';
 import Checkout from '../Checkout/Checkout';
@@ -24,15 +24,16 @@ function App() {
   const [components, setComponents] = useState([Home, Sidebar, Store, Cart, Checkout, ProductDetails, Search, SellProduct, Login, Register, Account]);
 
   useEffect(() => {
-    if(!auth.currentUser) {
-      firebase.auth().signInAnonymously()
-      .then(() => {
-        console.log("Signed in anonymusly with uid of " + auth.currentUser.uid);
-      })
-      .catch((error) => {
-        console.log("Cannot sign in.. Error: " + error.message);
-      });
-    }
+    setTimeout(() =>{
+      if(!auth.currentUser) {
+        firebase.auth().signInAnonymously()
+        .then(() => {
+          console.log("Signed in anonymusly with uid of " + auth.currentUser.uid);
+        })
+        .catch((error) => {
+          console.log("Cannot sign in.. Error: " + error.message);
+        });
+      }}, 1000);
   }, [])
 
   return (
