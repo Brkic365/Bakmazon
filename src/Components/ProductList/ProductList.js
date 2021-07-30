@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./ProductList.scss";
 import Product from '../Product/Product';
-import { db } from '../Firebase/Firebase';
+import { db, auth } from '../Firebase/Firebase';
 
 function ProductList({sortOrder, limit, search}) {
 

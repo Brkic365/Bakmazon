@@ -3,27 +3,30 @@ import './Home.scss'
 import PopularCategories from '../PopularCategories/PopularCategories';
 import SaleAd from '../SaleAd/SaleAd';
 import { motion } from 'framer-motion';
-import { db } from '../Firebase/Firebase';
-import {Link} from 'react-router-dom';
+import { db, auth } from '../Firebase/Firebase';
+import { Link } from 'react-router-dom';
+import ProductCarousel from '../ProductCarousel/ProductCarousel';
 
 function Home() {
 
     // States
-    const [index, setIndex] = useState(0);
-  
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
-    };
+    const [trendingProducts, setTrendingProducts] = useState([]);
+    const [reccomendedProducts, setReccomendedProducts] = useState([]);
+
+    // Variables 
+
+    let searchProducts = [];
+
+    // Functions
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [])
 
-    const [products, setProducts] = useState([]);
-
+    // Get trending products
     useEffect(() => {
-      db.collection('products').orderBy('orders', 'desc').limit(5).onSnapshot(snapshot => {
-        setProducts(snapshot.docs.map(doc => ({
+      db.collection('products').orderBy('orders', 'desc').limit(10).onSnapshot(snapshot => {
+        setTrendingProducts(snapshot.docs.map(doc => ({
           id: doc.id,
           product: {...doc.data(), ...{id: doc.id}}
         })))
@@ -49,7 +52,9 @@ function Home() {
         </div>
       </div>
       <PopularCategories />
+      <ProductCarousel products={trendingProducts} title="Trending deals" categoryLink="/store"/>
       <SaleAd />
+      <ProductCarousel products={reccomendedProducts} title="Based on your search history" />
     </div>
     );
 }

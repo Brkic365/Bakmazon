@@ -13,8 +13,8 @@ $primary-color: #CC021B;
   z-index: 1;
 
   h1 {
-    margin: 1em 0;
-    font-size: 3em;
+    margin: 1.5em 0;
+    font-size: 2em;
     font-weight: bold;
     width: 100%;
     border-bottom: 1px solid lightgray;
@@ -125,6 +125,9 @@ $primary-color: #CC021B;
 
 @media only screen and (min-width: 800px) {
   .cart {
+    h1 {
+      font-size: 3em;
+    }
     .cart__summary {
       align-items: center;
       text-align: center;
@@ -163,6 +166,7 @@ $primary-color: #CC021B;
 
 @media only screen and (min-width: 1200px) {
   .cart {
+    margin-top: 2em;
     .cart__content {
       display: flex;
       place-content: space-between;

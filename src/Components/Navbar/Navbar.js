@@ -124,7 +124,12 @@ function Navbar() {
             <Link to="/cart" className="navbar__cart-link" onMouseEnter={() => setDisplayCartDropdown(true)}>
               <div className="navbar__cart">
                 <img src={cart} alt="cart" className="navbar__cart-img"/>
-                <p className="navbar__cart-num">{itemCount}</p>
+                
+                <p className="navbar__cart-num" 
+                  style={{left: `${32 - 7*(itemCount.toString().length - 1)}%`, 
+                          fontSize: `${itemCount.toString().length >= 3 ? "1em" : "1.2em"}`}}
+                >{itemCount}</p>
+
                 <IoMdArrowDropdown className="navbar__cart-dropicon"/>
               </div>
             </Link>

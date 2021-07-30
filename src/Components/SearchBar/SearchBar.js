@@ -43,17 +43,14 @@ function SearchBar() {
 
         document.getElementById("text").blur();
 
+        // .set({[firebase.firestore.Timestamp.now().seconds]: `${text}`});
+
         // Saves search to database
-        db.collection("search").get().then(snapshot => {
-
-            // Creates user data for search info if not available
-            if(snapshot.docs.indexOf(`${auth.currentUser.uid}`) == -1 && !userSearchDataCollected) {
-                db.collection("search").doc(`${auth.currentUser.uid}`).set({[firebase.firestore.Timestamp.now().seconds]: `${text}`});
-                setUserSearchDataCollected(true);
-
-            // Updates user search data
+        db.collection("search").doc(`${auth.currentUser.uid}`).get().then(snapshot => {
+            if(snapshot.data()){
+                 db.collection("search").doc(`${auth.currentUser.uid}`).update({[firebase.firestore.Timestamp.now().seconds]: `${text}`});
             } else {
-                db.collection("search").doc(`${auth.currentUser.uid}`).update({[firebase.firestore.Timestamp.now().seconds]: `${text}`});
+                db.collection("search").doc(`${auth.currentUser.uid}`).set({[firebase.firestore.Timestamp.now().seconds]: `${text}`});
             }
         })
 

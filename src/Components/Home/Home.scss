@@ -8,6 +8,8 @@ $primary-color: #CC021B;
       height: 50rem;
       display: flex;
       padding-top: 5rem;
+      align-items: center;
+      justify-content: center;
       background-color: rgb(204, 2, 27);
   
       .content {
@@ -17,7 +19,7 @@ $primary-color: #CC021B;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 100%;
+        width: max-content;
         height: 100%;
   
         h1 {
@@ -80,12 +82,12 @@ $primary-color: #CC021B;
   
       .image {
         height: 100%;
-        width: 100%;
+        width: max-content;
         display: flex;
         padding-top: 5.25rem;
         align-items: center;
         img {
-          width: 100%;
+          width: 57.5rem;
         }
       }
     }
