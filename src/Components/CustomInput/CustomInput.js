@@ -40,7 +40,7 @@ function CustomInput({names, isRequired, buttonText, parentCallback}) {
         }
 
         inputs.push(<div className="custominput__field">
-                        <label>{text}
+                        <label htmlFor={`${text}`}>{text}
                                 {required ? (
                                     <span style={{color: "#EB5E55"}}> *</span>
                                 ): (
@@ -48,7 +48,7 @@ function CustomInput({names, isRequired, buttonText, parentCallback}) {
                                 )}</label>
                         
                         <div className="custominput__input-button">
-                            <input onChange={handleChange(text)} type={type} required={required}/>
+                            <input id={`${text}`} onChange={handleChange(text)} type={type} required={required}/>
 
                             {buttonText ? (
                                 <button type="text">{buttonText}</button>

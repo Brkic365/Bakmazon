@@ -23,7 +23,6 @@ function Checkout() {
 
     const handleCallback = (data) => {
         setInputValues({...inputValues, ...data});
-        console.log("Success!");
         console.log(inputValues);
     }
 

@@ -74,6 +74,10 @@ function Account() {
         }
     }
 
+    const handleCallback = (data) => {
+        setRealtimeInfo({...realtimeInfo, ...data});
+    }
+
     return (
         <div className="acc">
             <div className="acc__links">
@@ -103,10 +107,10 @@ function Account() {
                 </div>
                 <div className="acc__inputs">
                     <h2>Checkout Details</h2>
-                    <CustomInput names={["Phone number (optional)", "ZIP Code"]} parentCallback={(data) => setRealtimeInfo({...realtimeInfo, ...data})}/>
-                    <CustomInput names={["Country", "Town/City"]} parentCallback={(data) => setRealtimeInfo({...realtimeInfo, ...data})}/>
-                    <CustomInput names="Address" parentCallback={(data) => setRealtimeInfo({...realtimeInfo, ...data})}/>
-                    <CustomInput names="Company Name (optional)" parentCallback={(data) => setRealtimeInfo({...realtimeInfo, ...data})}/>
+                    <CustomInput names={["Phone number (optional)", "ZIP Code"]} parentCallback={handleCallback}/>
+                    <CustomInput names={["Country", "Town/City"]} parentCallback={handleCallback}/>
+                    <CustomInput names="Address" parentCallback={handleCallback}/>
+                    <CustomInput names="Company Name (optional)" parentCallback={handleCallback}/>
                     <button>UPDATE</button>
                 </div>
                 <div className="acc__danger-buttons">
