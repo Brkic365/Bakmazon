@@ -1,154 +1,205 @@
-import React, { useEffect, useState } from 'react'
-import './Product.scss'
-import { FiHeart } from 'react-icons/fi'
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-import { IoMdCart } from 'react-icons/io'
-import { auth, db } from '../Firebase/Firebase'
-import firebase from 'firebase'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import "./Product.scss";
+import { FiHeart } from "react-icons/fi";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { IoMdCart } from "react-icons/io";
+import { auth, db } from "../Firebase/Firebase";
+import firebase from "firebase";
+import { Link } from "react-router-dom";
 
-function Product({product}) {
-    
-    // States
+function Product({ product }) {
+  // States
 
-    const [userProductDataAvailable, setUserProductDataAvailable] = useState(false);
-    const [liked, setLiked] = useState(false);
-    
-    // Variables
-    
-    const stars = [];
-    let productInCart = false;
+  const [userProductDataAvailable, setUserProductDataAvailable] =
+    useState(false);
+  const [liked, setLiked] = useState(false);
 
-    // Functions
+  // Variables
 
-    // Clean Cart database
-    const cleanCartData = () => {
-        const docRef = db.collection("cart").doc(`${auth.currentUser.uid}`);
+  const stars = [];
+  let productInCart = false;
 
-        docRef.get().then(doc => {
-            Object.keys(doc.data()).forEach(key => {
-                if(doc.data()[key] == 0){
-                     docRef.update({[key]: firebase.firestore.FieldValue.delete()});
-                }
-            });
-        })
-    }
+  // Functions
 
-    // Sync like state and like data
+  // Clean Cart database
+  const cleanCartData = () => {
+    const docRef = db.collection("cart").doc(`${auth.currentUser.uid}`);
 
-    const syncLikeData = () => {
-        db.collection("products").doc(`${product.id}`).collection("user-settings").doc(`${auth.currentUser.uid}`).get().then(snapshot => {
-            try {   
-                setLiked(snapshot.data().liked === "true");
-            } catch {
-                setLiked(false);
-            }
-        })
-    }
+    docRef.get().then((doc) => {
+      Object.keys(doc.data()).forEach((key) => {
+        if (doc.data()[key] === 0) {
+          docRef.update({ [key]: firebase.firestore.FieldValue.delete() });
+        }
+      });
+    });
+  };
 
-    useEffect(() => {
-        syncLikeData();
-    }, []);
+  // Sync like state and like data
 
-    // Finds the instance of current product in database, and adds one to the current amount
-    const updateCart = (e) => {
-        if(!auth.currentUser) return;
+  const syncLikeData = () => {
+    db.collection("products")
+      .doc(`${product.id}`)
+      .collection("user-settings")
+      .doc(`${auth.currentUser.uid}`)
+      .get()
+      .then((snapshot) => {
+        try {
+          setLiked(snapshot.data().liked === "true");
+        } catch {
+          setLiked(false);
+        }
+      });
+  };
 
-        db.collection("cart").doc(`${auth.currentUser.uid}`).update({[product.id]: firebase.firestore.FieldValue.increment(1)});
+  useEffect(() => {
+    syncLikeData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Finds the instance of current product in database, and adds one to the current amount
+  const updateCart = (e) => {
+    if (!auth.currentUser) return;
+
+    db.collection("cart")
+      .doc(`${auth.currentUser.uid}`)
+      .update({ [product.id]: firebase.firestore.FieldValue.increment(1) });
+
+    cleanCartData();
+  };
+
+  const generateProductCart = () => {
+    db.collection("cart")
+      .doc(`${auth.currentUser.uid}`)
+      .get()
+      .then((snapshot) => {
+        try {
+          // eslint-disable-next-line no-negated-in-lhs
+          if (!product.id in Object.keys(snapshot.data())) {
+            db.collection("cart")
+              .doc(`${auth.currentUser.uid}`)
+              .set({ [product.id]: 0 });
+          } else {
+            productInCart = true;
+          }
+        } catch {
+          db.collection("cart")
+            .doc(`${auth.currentUser.uid}`)
+            .set({ [product.id]: 0 });
+        }
 
         cleanCartData();
-    }
-    
-    const generateProductCart = () => {
-        db.collection("cart").doc(`${auth.currentUser.uid}`).get().then(snapshot => {
-            try {
-                if (!product.id in Object.keys(snapshot.data())) {
-                    db.collection("cart").doc(`${auth.currentUser.uid}`).set({[product.id]: 0});
-                } else {
-                    productInCart = true;
-                }
-            } catch {
-                db.collection("cart").doc(`${auth.currentUser.uid}`).set({[product.id]: 0});
+      });
+  };
+
+  const handleLike = () => {
+    if (!userProductDataAvailable) {
+      db.collection("products")
+        .doc(`${product.id}`)
+        .collection("user-settings")
+        .get()
+        .then((snapshot) => {
+          try {
+            if (snapshot.doc.indexOf(`${auth.currentUser.uid}`) === -1) {
+              db.collection("products")
+                .doc(`${product.id}`)
+                .collection("user-settings")
+                .doc(`${auth.currentUser.uid}`)
+                .set({ liked: `${!liked}` });
             }
+          } catch {
+            db.collection("products")
+              .doc(`${product.id}`)
+              .collection("user-settings")
+              .doc(`${auth.currentUser.uid}`)
+              .set({ liked: `${!liked}` });
+          }
 
-            cleanCartData();
-        })
+          setUserProductDataAvailable(true);
+          setLiked(!liked);
+        });
+    } else {
+      db.collection("products")
+        .doc(`${product.id}`)
+        .collection("user-settings")
+        .doc(`${auth.currentUser.uid}`)
+        .update({ liked: `${!liked}` });
+      setLiked(!liked);
     }
+  };
 
-    const handleLike = () => {
+  // Generate n full stars and fill the rest with empty stars
 
-        if(!userProductDataAvailable){
-            db.collection("products").doc(`${product.id}`).collection("user-settings").get().then(snapshot => {
-                try {
-                    if (snapshot.doc.indexOf(`${auth.currentUser.uid}`) == -1){
-                        db.collection("products").doc(`${product.id}`).collection("user-settings").doc(`${auth.currentUser.uid}`).set({liked: `${!liked}`});
-                    }
-                } catch {
-                    db.collection("products").doc(`${product.id}`).collection("user-settings").doc(`${auth.currentUser.uid}`).set({liked: `${!liked}`});
-                }
+  for (let i = 0; i < 5; i++) {
+    stars.push(
+      i < product.stars ? (
+        <AiFillStar size="2.5em" color="#EB5E55" />
+      ) : (
+        <AiOutlineStar size="2.5em" color="#EB5E55" />
+      )
+    );
+  }
 
-                setUserProductDataAvailable(true);
-                setLiked(!liked);
-            })
-        }else {
-            db.collection("products").doc(`${product.id}`).collection("user-settings").doc(`${auth.currentUser.uid}`).update({liked: `${!liked}`});
-            setLiked(!liked);
-        }
-    }
+  // If there is no instance of product in cart database, generate it
 
-    // Generate n full stars and fill the rest with empty stars
+  if (!productInCart) generateProductCart();
 
-    for(let i = 0; i < 5; i++){
-        stars.push(i < product.stars ? <AiFillStar size="2.5em" color="#EB5E55"/> : 
-                                        <AiOutlineStar size="2.5em" color="#EB5E55"/>);
-    }
+  return (
+    <div className="product">
+      <div className="product__heartcontainer">
+        <FiHeart
+          className="product__heart"
+          fill={`${liked ? `#EB5E55` : `none`}`}
+          size="0.8em"
+          onClick={handleLike}
+        />
+      </div>
 
-    // If there is no instance of product in cart database, generate it
+      <img src={product.imgUrl} alt="product" />
 
-    if(!productInCart) generateProductCart();
+      <h1>{product.name}</h1>
 
-    return (
-        <div className="product">
-            <div className="product__heartcontainer">
-             <FiHeart className="product__heart" fill={`${liked ? `#EB5E55` : `none`}`} size="0.8em" onClick={handleLike}/>
-            </div>
+      <div className="product__stars">{stars}</div>
 
-            <img src={product.imgUrl} alt="product" />
+      {product.oldPrice ? (
+        <div className="product__price">
+          <div
+            className="product__discountprice"
+            style={{ height: "2em", marginTop: "0" }}
+          >
+            <p style={{ textDecoration: "line-through 2.5px" }}>
+              ${product.oldPrice}
+            </p>
+            <p>
+              -{Math.round(100 - (product.price / product.oldPrice) * 100)}%
+            </p>
+          </div>
 
-            <h1>{product.name}</h1>
-
-            <div className="product__stars">
-                {stars}
-            </div>
-            
-            {
-                 product.oldPrice ? (
-                    <div className="product__price">
-                        <div className="product__discountprice" style={{height: "2em", marginTop: "0"}}>
-                            <p style={{textDecoration: "line-through 2.5px"}}>${product.oldPrice}</p>
-                            <p>-{Math.round(100 - (product.price / product.oldPrice * 100))}%</p>
-                        </div>
-
-                        <h3 style={{color:"#EB5E55"}}>${product.price}</h3>
-                    </div> 
-                ): (
-                    <div className="product__price"  style={{marginTop: "1em"}}>
-                        <h3 style={{color:"black"}}>{product.price > 0 ? "$" + product.price : "FREE"}</h3>
-                    </div>  
-                )
-            }
-
-            <div className="product__buttons">
-                <div className="product__details">
-                    <Link style={{ textDecoration: 'none', color: '#EB5E55'}} to={`/product/${product.id}`}><h4>DETAILS</h4></Link>
-                </div>
-                <div className="product__cart" onClick={updateCart}>
-                    <IoMdCart className="product__cartimg"/>
-                    <h4>CART</h4>
-                </div>
-            </div>
+          <h3 style={{ color: "#EB5E55" }}>${product.price}</h3>
         </div>
-    )
+      ) : (
+        <div className="product__price" style={{ marginTop: "1em" }}>
+          <h3 style={{ color: "black" }}>
+            {product.price > 0 ? "$" + product.price : "FREE"}
+          </h3>
+        </div>
+      )}
+
+      <div className="product__buttons">
+        <div className="product__details">
+          <Link
+            style={{ textDecoration: "none", color: "#EB5E55" }}
+            to={`/product/${product.id}`}
+          >
+            <h4>DETAILS</h4>
+          </Link>
+        </div>
+        <div className="product__cart" onClick={updateCart}>
+          <IoMdCart className="product__cartimg" />
+          <h4>CART</h4>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Product
+export default Product;
