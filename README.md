@@ -1,6 +1,8 @@
 # BAKMAZON
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bakmazon is an E-commerce website built using React framework and firestore.
+
+<img src="./ReadMeImages/Header.png" width="300">
 
 ## Available Scripts
 
