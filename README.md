@@ -2,8 +2,6 @@
 
 Bakmazon is an E-commerce website built using React framework and firestore.
 
-<img src="./ReadMeImages/Header.png" width="300">
-
 ## Available Scripts
 
 In the project directory, you can run:
