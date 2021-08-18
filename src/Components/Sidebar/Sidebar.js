@@ -7,6 +7,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { motion } from "framer-motion";
+import { db } from "../Firebase/Firebase";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,6 +34,18 @@ const Sidebar = () => {
   const maxValRef = useRef(max);
   const range = useRef(null);
 
+  const [products, setProducts] = useState([]);
+
+  const [categories, setCategories] = useState([]);
+
+  const [hats, setHats] = useState(0);
+  const [caps, setCaps] = useState(0);
+  const [shoes, setShoes] = useState(0);
+  const [swimsuits, setSwimsuits] = useState(0);
+  const [shirts, setShirts] = useState(0);
+  const [jackets, setJackets] = useState(0);
+  const [jeans, setJeans] = useState(0);
+
   // Convert to percentage
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
@@ -58,7 +71,27 @@ const Sidebar = () => {
     if (range.current) {
       range.current.style.width = `${maxPercent - minPercent}%`;
     }
-  }, [maxVal, getPercent]);
+
+    db.collection("products").onSnapshot((snapshot) => {
+      setProducts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          product: { ...doc.data(), ...{ id: doc.id } },
+        }))
+      );
+    });
+
+    setCategories(products.map((product) => product.product.category));
+
+    setHats(categories.filter((cat) => cat === "Hats"));
+    setCaps(categories.filter((cat) => cat === "Caps"));
+    setJackets(categories.filter((cat) => cat === "Jackets"));
+    setSwimsuits(categories.filter((cat) => cat === "Swimsuits"));
+    setShirts(categories.filter((cat) => cat === "Shirts"));
+    setJeans(categories.filter((cat) => cat === "Jeans"));
+    setShoes(categories.filter((cat) => cat === "Shoes"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [maxVal, getPercent, products]);
 
   return (
     <div className="sidebar">
@@ -66,31 +99,31 @@ const Sidebar = () => {
         <h3>Categories</h3>
         <li className="list">
           <button type="button">Hats</button>
-          <h5>(9)</h5>
+          <h5>({hats.length})</h5>
         </li>
         <li className="list">
           <button type="button">Caps</button>
-          <h5>(3)</h5>
+          <h5>({caps.length})</h5>
         </li>
         <li className="list">
           <button type="button">Jackets</button>
-          <h5>(3)</h5>
+          <h5>({jackets.length})</h5>
         </li>
         <li className="list">
-          <button type="button">Sweaters</button>
-          <h5>(5)</h5>
+          <button type="button">Shoes</button>
+          <h5>({shoes.length})</h5>
         </li>
         <li className="list">
           <button type="button">Shirts</button>
-          <h5>(4)</h5>
+          <h5>({shirts.length})</h5>
         </li>
         <li className="list">
           <button type="button">Jeans</button>
-          <h5>(8)</h5>
+          <h5>({jeans.length})</h5>
         </li>
         <li className="list">
           <button type="button">Swimsuits</button>
-          <h5>(7)</h5>
+          <h5>({swimsuits.length})</h5>
         </li>
       </ul>
       <div className="price-range">
@@ -260,7 +293,7 @@ const Sidebar = () => {
                   <label for="cbtest13" class="check-box"></label>
                 </li>
                 <li className="list">
-                  <h5>Dreamgender</h5>
+                  <h5>Unisex</h5>
                   <input type="checkbox" id="cbtest14" />
                   <label for="cbtest14" class="check-box"></label>
                 </li>

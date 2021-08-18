@@ -56,6 +56,8 @@ function ProductList({ sortOrder, limit, search }) {
     }
   }, [sortOrder, limit, search]);
 
+  console.log(products);
+
   return (
     <div className="productlist">
       {products.length > 0 ? (

@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap");
 
-$primary-color: #CC021B;
+$primary-color: #cc021b;
 
 .sidebar {
   position: absolute;
   background-color: rgb(240, 240, 240);
   box-shadow: 0px 0px 1px 1px rgb(230, 230, 230);
-  top: 90px;
+  top: 80px;
   width: 20rem;
-  height: 140rem;
+  height: 100rem;
   display: flex;
   flex-direction: column;
   align-items: center;

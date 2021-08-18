@@ -12,6 +12,9 @@ function SellProduct() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
+  const [color, setColor] = useState("");
+  const [sex, setSex] = useState("");
   const [imgUrl, setImgUrl] = useState("");
 
   // Refs
@@ -20,6 +23,9 @@ function SellProduct() {
   const nameInput = createRef("");
   const descriptionInput = createRef("");
   const categoryInput = createRef("");
+  const brandInput = createRef("");
+  const colorInput = createRef("");
+  const sexInput = createRef("");
   const priceInput = createRef("");
 
   const refs = [
@@ -27,6 +33,9 @@ function SellProduct() {
     nameInput,
     descriptionInput,
     categoryInput,
+    brandInput,
+    colorInput,
+    sexInput,
     priceInput,
   ];
 
@@ -80,6 +89,9 @@ function SellProduct() {
       name: name,
       description: description,
       category: category,
+      brand: brand,
+      color: color,
+      sex: sex,
       stars: 0,
       orders: 0,
       price: Number(price),
@@ -127,6 +139,33 @@ function SellProduct() {
                 ref={categoryInput}
                 type="text"
                 id="category"
+              />
+            </div>
+            <div className="sell__category-form sell__form-component">
+              <label htmlFor="brand">Product Brand:</label>
+              <input
+                onChange={(e) => setBrand(e.target.value)}
+                ref={brandInput}
+                type="text"
+                id="brand"
+              />
+            </div>
+            <div className="sell__category-form sell__form-component">
+              <label htmlFor="color">Product Color:</label>
+              <input
+                onChange={(e) => setColor(e.target.value)}
+                ref={colorInput}
+                type="text"
+                id="color"
+              />
+            </div>
+            <div className="sell__category-form sell__form-component">
+              <label htmlFor="sex">Product Sex:</label>
+              <input
+                onChange={(e) => setSex(e.target.value)}
+                ref={sexInput}
+                type="text"
+                id="sex"
               />
             </div>
 

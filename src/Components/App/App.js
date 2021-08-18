@@ -17,6 +17,7 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Account from "../Account/Account";
 import ProductDetails from "../ProductDetails/ProductDetails";
+import Contact from "../Contact/Contact";
 
 function App() {
   const [links] = useState([
@@ -31,6 +32,7 @@ function App() {
     "/login",
     "/register",
     "/account",
+    "/contact",
   ]);
   const [components] = useState([
     Home,
@@ -44,6 +46,7 @@ function App() {
     Login,
     Register,
     Account,
+    Contact,
   ]);
 
   useEffect(() => {

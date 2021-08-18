@@ -10,7 +10,6 @@ import ProductCarousel from "../ProductCarousel/ProductCarousel";
 function Home() {
   // States
   const [trendingProducts, setTrendingProducts] = useState([]);
-  const [reccomendedProducts] = useState([]);
 
   // Functions
 
@@ -74,10 +73,6 @@ function Home() {
         categoryLink="/store"
       />
       <SaleAd />
-      <ProductCarousel
-        products={reccomendedProducts}
-        title="Based on your search history"
-      />
     </div>
   );
 }
